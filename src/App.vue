@@ -13,10 +13,21 @@
         : typeof weather.main != 'undefined' &&
           weather.weather[0].main == 'Clear'
         ? 'clear'
+        : typeof weather.main != 'undefined' && weather.weather[0].main == 'Fog'
+        ? 'fog'
         : ''
     "
   >
     <main>
+      <div class="title">
+        <h2 class="app-title">Weather Info App</h2>
+        <p>
+          By
+          <a href="https://mk-portfolio.vercel.app/" target="_blank"
+            >Pythagoras-Dev</a
+          >
+        </p>
+      </div>
       <div class="search-box">
         <input
           type="text"
@@ -122,7 +133,7 @@ body {
   background-image: url("./assets/images/rain.jpg");
   background-size: cover;
   background-position: bottom;
-  //transition: 0.1;
+  transition: 0.1;
 }
 #app.cloud {
   background-image: url("./assets/images/cloudy.jpg");
@@ -136,6 +147,29 @@ body {
 #app.snow {
   background-image: url("./assets/images/snow.jpg");
 }
+#app.fog {
+  background-image: url("./assets/images/fog.jpg");
+}
+.title {
+  background: rgba(238, 238, 238, 0.705);
+  padding: 5px 0;
+}
+.app-title {
+  color: #000;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+  margin: 5px 0;
+}
+.title p {
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.title a {
+  color: black;
+}
 main {
   min-height: 100vh;
   padding: 25px;
@@ -148,7 +182,7 @@ main {
 .search-box {
   width: 70%;
   margin-bottom: 30px;
-  margin: 0 auto;
+  margin: 20px auto 30px auto;
 }
 @media screen and (max-width: 600px) {
   .search-box {
