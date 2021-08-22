@@ -47,8 +47,8 @@ export default {
   name: "app",
   data() {
     return {
-      api_key: process.env.VUE_APP_NOT_SECRET_CODE,
-
+      //api_key: process.env.VUE_APP_NOT_SECRET_CODE,
+      api_key: "4ad35f8133e6a1935619169da5990963",
       // the api base (what goes in front of our request)
       url_base: "https://api.openweathermap.org/data/2.5/",
       query: "",
@@ -59,7 +59,9 @@ export default {
   methods: {
     fetchWeather: function(e) {
       if (e.key == "Enter") {
-        fetch()`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`
+        fetch(
+          `${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`
+        )
           // callback
           .then((res) => {
             return res.json();
